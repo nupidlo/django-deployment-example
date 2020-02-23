@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ACCESS RECORDS</title>
+    <link rel="stylesheet" href="{% static "/css/mystyle.css" %}">
+  </head>
+  <body>
+    <h1>All access records:</h1>
+
+    <div class="acc_recs">
+      {% if access_records %}
+      <table>
+        <thead>
+          <th>Site name</th>
+          <th>Accessed at</th>
+        </thead>
+        {% for acc in access_records %}
+        <tr>
+          <td>{{ acc.name }}</td>
+          <td>{{ acc.date }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    {% else %}
+    <p>No access records found!</p>
+    {% endif %}
+  </body>
+</html>

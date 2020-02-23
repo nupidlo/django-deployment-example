@@ -1,0 +1,10 @@
+{% extends "first_app/base.html" %}
+{% load my_extras %}
+  {% block body_block %}
+    <div class="jumbotron">
+      <h1>Vice-main page</h1>
+      <h3>This is an example of template inheritance</h3>
+      <h1>{{ text|cut:"o" }}</h1>
+      <h1>{{ number|add:"99" }}</h1>
+    </div>
+  {% endblock %}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-sm bg-light sticky-top">
+      <a href="{% url 'index' %}" class="navbar-brand">Home</a>
+      <div class="container">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="{% url 'admin:index' %}" class="nav-link">Admin</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'first_app:register' %}" class="nav-link">Register</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'first_app:other' %}" class="nav-link">Other</a>
+          </li>
+          {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a href="{% url 'first_app:logout' %}" class="nav-link">Log Out</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'first_app:special' %}" class="nav-link">Special</a>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <a href="{% url 'first_app:user_login' %}" class="nav-link">Log In</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      {% block body_block %}
+      {% endblock %}
+    </div>
+
+  </body>
+</html>

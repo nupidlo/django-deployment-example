@@ -1,0 +1,14 @@
+h1 {
+  color: red;
+}
+
+img {
+  width: 50%;
+  padding: 5px;
+  margin: auto;
+}
+
+table, th, td {
+  border: 2px solid black;
+  background-color: lightgrey;
+}
